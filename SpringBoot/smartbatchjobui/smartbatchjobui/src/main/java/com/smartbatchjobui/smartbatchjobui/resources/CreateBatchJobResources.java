@@ -35,6 +35,9 @@ public class CreateBatchJobResources {
     void DeleteParameter(@PathVariable("id")Long id){
         createBatchJobService.deleteById(id);
     }
+
+
+
     @PutMapping("/UpdateParameter/{id}")
     ResponseEntity<CreateBatchJobParameter> UpdateParameter(@RequestBody CreateBatchJobParameter createBatchJobParameter,
                                                              @PathVariable("id")Long id){
