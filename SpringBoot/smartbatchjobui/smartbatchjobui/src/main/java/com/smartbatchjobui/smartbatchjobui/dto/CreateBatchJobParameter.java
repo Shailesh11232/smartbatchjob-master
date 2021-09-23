@@ -10,6 +10,8 @@ public class CreateBatchJobParameter {
     private Boolean VisibleFlag ;
     private String DefaultValue ;
     private String RegexforValidation ;
+
+
     public CreateBatchJobParameter(){
 
     }

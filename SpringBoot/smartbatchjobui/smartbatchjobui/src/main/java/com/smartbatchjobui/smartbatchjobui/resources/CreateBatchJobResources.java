@@ -57,8 +57,8 @@ public class CreateBatchJobResources {
                 createBatchJobService.getIdBatchJob(createBatchJobId);
         return ResponseEntity.ok().body(createBatchJobParametersResult);
     }
-    @GetMapping( "/cbj/getAll")
-    ResponseEntity<List<CreateBatchJob>> getAll() {
+    @GetMapping( "/cbj/allGet")
+    ResponseEntity<List<CreateBatchJob>> allGet() {
         List<CreateBatchJob> createBatchJobResult =
                 createBatchJobService.getAllBatchJob();
         return ResponseEntity.ok().body(createBatchJobResult);
