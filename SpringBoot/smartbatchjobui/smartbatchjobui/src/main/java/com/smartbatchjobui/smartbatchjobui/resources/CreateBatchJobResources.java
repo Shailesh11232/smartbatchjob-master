@@ -31,6 +31,10 @@ public class CreateBatchJobResources {
                           .path("{/id}").buildAndExpand(createBatchJobResult).toUri();
           return ResponseEntity.created(location).body(createBatchJobResult);
     }
+    @DeleteMapping("/ParameterDelete/{id}")
+    void DeleteParameter(@PathVariable("id")Long id){
+        createBatchJobService.deleteById(id);
+    }
     @PutMapping("/UpdateParameter/{id}")
     ResponseEntity<CreateBatchJobParameter> UpdateParameter(@RequestBody CreateBatchJobParameter createBatchJobParameter,
                                                              @PathVariable("id")Long id){
@@ -58,11 +62,7 @@ public class CreateBatchJobResources {
     }
 
     @DeleteMapping("BatchJobDelete/{BatchJobId}")
-    void DeleteParameter(@PathVariable("BatchJobId")Long BatchJobId){
-        createBatchJobService.deletByBatchJobId(BatchJobId);
-    }
-
-    void  DeleteBatchJob(@PathVariable("BatchJobId")Long BatchJobId){
+    void  DeleteBatchJOb(@PathVariable("BatchJobId")Long BatchJobId){
         createBatchJobService.deletByBatchJobId(BatchJobId);
     }
 

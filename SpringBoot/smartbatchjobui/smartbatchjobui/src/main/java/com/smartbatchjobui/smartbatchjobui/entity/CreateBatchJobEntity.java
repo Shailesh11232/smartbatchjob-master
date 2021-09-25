@@ -3,6 +3,7 @@ package com.smartbatchjobui.smartbatchjobui.entity;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "batch_job")
 @EntityListeners(AuditingEntityListener.class)
@@ -17,6 +18,9 @@ public class CreateBatchJobEntity extends AudiTable{
     private String batchJobDescription ;
     @Column(name = "Batch_Job_Type")
     private String batchJobType ;
+    @OneToMany(targetEntity = CreateBatchJobParameterEntity.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="Batch_job_id",referencedColumnName = "Batch_job_id")
+    private List<CreateBatchJobParameterEntity> createBatchJobParameterEntities;
 
     @Override
     public String toString() {
