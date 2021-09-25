@@ -1,7 +1,7 @@
 package com.smartbatchjobui.smartbatchjobui.dto;
 
 public class CreateBatchJobParameter {
-    private Long id;
+    private Long batchJobParameterId;
     private String ParameterName ;
     private String ParameterDescription ;
     private String ParameterType ;
@@ -11,12 +11,11 @@ public class CreateBatchJobParameter {
     private String DefaultValue ;
     private String RegexforValidation ;
 
-
     public CreateBatchJobParameter(){
 
     }
     public CreateBatchJobParameter(Long id, String parameterName, String parameterDescription, String parameterType, String parameterFormat, Boolean mandatoryFlag, Boolean visibleFlag, String defaultValue, String regexforValidation) {
-        this.id = id;
+        this.batchJobParameterId = batchJobParameterId;
         ParameterName = parameterName;
         ParameterDescription = parameterDescription;
         ParameterType = parameterType;
@@ -30,7 +29,7 @@ public class CreateBatchJobParameter {
     @Override
     public String toString() {
         return "createBatchJobParameter{" +
-                "id=" + id +
+                "batchJobParameterId=" + batchJobParameterId +
                 ", ParameterName='" + ParameterName + '\'' +
                 ", ParameterDescription='" + ParameterDescription + '\'' +
                 ", ParameterType='" + ParameterType + '\'' +
@@ -43,11 +42,11 @@ public class CreateBatchJobParameter {
     }
 
     public Long getId() {
-        return id;
+        return batchJobParameterId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.batchJobParameterId = id;
     }
 
     public String getParameterName() {

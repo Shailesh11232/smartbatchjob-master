@@ -3,38 +3,29 @@ package com.smartbatchjobui.smartbatchjobui.dto;
 import java.util.List;
 
 public class CreateBatchJob {
-    private Long id ;
+    private Long batchJobId ;
     private String batchJobName;
     private String batchJobDescription ;
     private String batchJobType ;
     private List<CreateBatchJobParameter> createBatchJobParameter ;
 
-    public CreateBatchJob() {
-    }
-    public CreateBatchJob(Long id, String batchJobName, String batchJobDescription, String batchJobType, List<CreateBatchJobParameter> createBatchJobParameter) {
-        this.id = id;
-        this.batchJobName = batchJobName;
-        this.batchJobDescription = batchJobDescription;
-        this.batchJobType = batchJobType;
-        this.createBatchJobParameter = createBatchJobParameter;
-    }
-
     @Override
     public String toString() {
         return "CreateBatchJob{" +
-                "id=" + id +
+                "batchJobId=" + batchJobId +
                 ", batchJobName='" + batchJobName + '\'' +
                 ", batchJobDescription='" + batchJobDescription + '\'' +
                 ", batchJobType='" + batchJobType + '\'' +
                 ", createBatchJobParameter=" + createBatchJobParameter +
                 '}';
     }
-    public Long getId () {
-        return id;
+
+    public Long getId() {
+        return batchJobId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.batchJobId = id;
     }
 
     public String getBatchJobName() {
@@ -68,10 +59,4 @@ public class CreateBatchJob {
     public void setCreateBatchJobParameter(List<CreateBatchJobParameter> createBatchJobParameter) {
         this.createBatchJobParameter = createBatchJobParameter;
     }
-
-
-
-
-
-
 }

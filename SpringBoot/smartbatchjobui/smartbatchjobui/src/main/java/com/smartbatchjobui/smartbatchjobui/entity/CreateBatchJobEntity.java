@@ -9,7 +9,8 @@ import javax.persistence.*;
 public class CreateBatchJobEntity extends AudiTable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    @Column(name = "Batch_job_id")
+    private Long batchJobId ;
     @Column(name = "Batch_Job_Name")
     private String batchJobName;
     @Column(name = "Batch_Job_Description")
@@ -20,7 +21,7 @@ public class CreateBatchJobEntity extends AudiTable{
     @Override
     public String toString() {
         return "CreateBatchJobEntity{" +
-                "id=" + id +
+                "batchJobId=" + batchJobId +
                 ", batchJobName='" + batchJobName + '\'' +
                 ", batchJobDescription='" + batchJobDescription + '\'' +
                 ", batchJobType='" + batchJobType + '\'' +
@@ -28,11 +29,11 @@ public class CreateBatchJobEntity extends AudiTable{
     }
 
     public Long getId() {
-        return id;
+        return batchJobId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.batchJobId = id;
     }
 
     public String getBatchJobName() {
