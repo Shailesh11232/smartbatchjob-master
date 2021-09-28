@@ -1,0 +1,27 @@
+.example-container {
+  height: 700px;
+
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: top;
+  justify-content: top;
+  padding-left: 5%;
+  padding-top: 3%;
+}
+.example-sidenav {
+  user-select: none;
+  background-color: rgb(164, 189, 235);
+}
+.full-width {
+  width: 100%;
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
