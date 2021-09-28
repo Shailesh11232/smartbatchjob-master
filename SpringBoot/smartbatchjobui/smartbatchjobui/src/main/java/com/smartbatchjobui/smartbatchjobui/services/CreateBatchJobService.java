@@ -21,7 +21,7 @@ public class CreateBatchJobService {
     @Autowired
     CreateBatchJobParameterRepository createBatchJobParameterRepository;
 
-    public CreateBatchJob CreateBJob( CreateBatchJob createBatchJob){
+    public CreateBatchJob CreateBJob(CreateBatchJob createBatchJob) {
         CreateBatchJobEntity createBatchJobEntity = new CreateBatchJobEntity();
         createBatchJobEntity.setId(0L);
         createBatchJobEntity.setBatchJobDescription(createBatchJob.getBatchJobDescription());
@@ -69,7 +69,8 @@ public class CreateBatchJobService {
         });
         return createBatchJob1;
     }
-    public List<CreateBatchJobParameter> getIdBatchJob(Long createBatchJobId){
+
+    public List<CreateBatchJobParameter> getIdBatchJob(Long createBatchJobId) {
 
 
         List<CreateBatchJobParameterEntity> createBatchJobParameterEntityList =
@@ -92,7 +93,7 @@ public class CreateBatchJobService {
         return createBatchJobParameterList;
     }
 
-    public List<CreateBatchJob> getAllBatchJob(){
+    public List<CreateBatchJob> getAllBatchJob() {
 
         List<CreateBatchJobEntity> createBatchJobEntityList =
                 createBatchJobRepository.findAll();
@@ -110,13 +111,15 @@ public class CreateBatchJobService {
             createBatchJob.setBatchJobType(createBatchJobEntity.getBatchJobType());
             createBatchJobList.add(createBatchJob);
         });
-        return  createBatchJobList;
+        return createBatchJobList;
     }
-    public void deleteById(Long id){
+
+    public void deleteById(Long id) {
         createBatchJobParameterRepository.deleteById(id);
     }
+
     public CreateBatchJobParameter UpadetParameter
-            (CreateBatchJobParameter createBatchJobParameter,Long batchJobId){
+            (CreateBatchJobParameter createBatchJobParameter, Long batchJobId) {
         CreateBatchJobEntity createBatchJobEntity =
                 createBatchJobRepository.findById(batchJobId).get();
 
@@ -147,7 +150,13 @@ public class CreateBatchJobService {
         createBatchJobParameter1.setDefaultValue(createBatchJobParameterEntityResult.getDefaultValue());
         return createBatchJobParameter1;
     }
-    public void  deletByBatchJobId(Long BatchJobId){
+
+    public void deletByBatchJobId(Long BatchJobId) {
+        createBatchJobRepository.deleteById(BatchJobId);
+    }
+
+    public void deleteById(long BatchJobId) {
+        createBatchJobParameterRepository.deleteById(BatchJobId);
         createBatchJobRepository.deleteById(BatchJobId);
     }
 }

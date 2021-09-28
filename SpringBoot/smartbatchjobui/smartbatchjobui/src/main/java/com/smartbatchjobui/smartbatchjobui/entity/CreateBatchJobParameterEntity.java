@@ -11,6 +11,7 @@ public class CreateBatchJobParameterEntity extends AudiTable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "batchJobParameterId")
     private Long batchJobParameterId;
+
     @Column(name = "batch_job_id")
     private Long createBatchJobId;
     @Column(name = "Parameter_Name")
