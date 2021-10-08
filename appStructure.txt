@@ -1,0 +1,22 @@
+● src
++---● app
+|   +--● BatchJobs
+|   |  |--batchjobs.component.ts|.html|.css
+|   |  +--● batchjob
+|   |  |  |--batchjob.component.ts|.html|.css
+|   |  +--● batchjob-parameters
+|   |  |  |--batchjob-parameters.component.ts|.html|.css
+|   |  |
+|   |  +--● shared
+|   |     |--user.model.ts
+|   |     |--user.service.ts  
+|   |     |--batchjob-parameters.model.ts
+|   |     |--batchjob.model.ts
+|   |     |--batchjob.service.ts  
+|   |
+|   |--app.module.ts
+|
++---● environments  
+|   |--environment.ts (saved apiUrl)
+|
+|--index.html (cdn path for bootstrap and font awesome icon)

@@ -5,13 +5,15 @@ import { BatchjobComponent } from './batchjobs/batchjob/batchjob.component';
 import { BatchjobsComponent } from './batchjobs/batchjobs.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'batchjob', pathMatch: 'full'},
-  { path: 'batchjobs', component:BatchjobsComponent},
-  { path:'batchjob', children:[
-    { path:'',component:BatchjobComponent},
-    { path:':Id',component:BatchjobComponent},
-  ]} 
-  
+  { path: '', redirectTo: 'batchjob', pathMatch: 'full' },
+  { path: 'batchjobs', component: BatchjobsComponent },
+  {
+    path: 'batchjob', children: [
+      { path: '', component: BatchjobComponent },
+      { path: ':id', component: BatchjobComponent },
+    ]
+  }
+
 ];
 
 @NgModule({
@@ -20,7 +22,7 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-                  BatchjobComponent,
-                  BatchjobsComponent,
-                  BatchjobParameterComponent
-                ]
+  BatchjobComponent,
+  BatchjobsComponent,
+  BatchjobParameterComponent
+]

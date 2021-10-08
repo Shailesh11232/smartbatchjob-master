@@ -1,0 +1,131 @@
+<h1 color="Red">Batch Job Details</h1>
+<form
+  #form="ngForm"
+  autocomplete="off"
+  *ngIf="service.formData"
+  (submit)="onSubmit(form)"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <div hidden class="form-group">
+        <label>Batch Job ID</label>
+        <input
+          type="text"
+          name="batchJobId"
+          #batchJobId="ngModel"
+          [(ngModel)]="service.formData.batchJobId"
+          class="form-control"
+          [class.is-invalid]="!isValid"
+        />
+      </div>
+      <div class="form-group">
+        <label>Batch Job Name</label>
+        <input
+          type="text"
+          name="batchJobName"
+          #batchJobName="ngModel"
+          [(ngModel)]="service.formData.batchJobName"
+          class="form-control"
+          [class.is-invalid]="
+            !isValid && service.formData.batchJobName.length <= 2
+          "
+        />
+      </div>
+      <div class="form-group">
+        <label>Batch Job Type</label>
+        <select
+          name="batchJobType"
+          #batchJobType="ngModel"
+          [(ngModel)]="service.formData.batchJobType"
+          class="form-control"
+          [class.is-invalid]="!isValid && service.formData.batchJobType == '0'"
+        >
+          <option value="0">-Select-</option>
+          <option value="ETL">ETL</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Batch Job Description</label>
+        <input
+          type="text"
+          name="batchJobDescription"
+          #batchJobDescription="ngModel"
+          [(ngModel)]="service.formData.batchJobDescription"
+          class="form-control"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- batch job parameters table-->
+  <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Parameter Id</th>
+      <th>Parameter Name</th>
+      <th>Parameter Description</th>
+      <th>Parameter Type</th>
+      <th>Parameter Format</th>
+      <th>MandatoryFlag</th>
+      <th>VisibleFlag</th>
+      <th>Default value</th>
+      <th>RegexforValidation</th>
+
+      <th>
+        <a
+          class="btn btn-sm btn-success text-white"
+          (click)="
+            AddOrEditBatchJobParameter(null, service.formData.batchJobId)
+          "
+          ><i class="fa fa-plus"></i> Add Parameter</a
+        >
+      </th>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngIf="service.batchJobParameters?.length == 0"
+        [class.text-danger]="!isValid && service.batchJobParameters.length == 0"
+      >
+        <td class="font-italic text-center" colspan="9">
+          No parameter defined for this job.
+        </td>
+      </tr>
+
+      <tr *ngFor="let param of service.batchJobParameters; let i = index">
+        <td>{{ param.parameterId }}</td>
+        <td>{{ param.parameterName }}</td>
+        <td>{{ param.parameterDescription }}</td>
+        <td>{{ param.parameterType }}</td>
+        <td>{{ param.parameterFormat }}</td>
+        <td>{{ param.mandatoryFlag }}</td>
+        <td>{{ param.visibleFlag }}</td>
+        <td>{{ param.defaultValue }}</td>
+        <td>{{ param.regexforValidation }}</td>
+        <td>
+          <a
+            class="btn btn-sm btn-info text-white"
+            (click)="AddOrEditBatchJobParameter(i, service.formData.batchJobId)"
+            ><i class="fa fa-pencil"></i
+          ></a>
+          <a
+            class="btn btn-sm btn-danger text-white ml-1"
+            (click)="onDeleteBatchJobParameter(param.parameterId, i)"
+            ><i class="fa fa-trash"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark">
+      <i class="fa fa-database"></i> submit
+    </button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/batchjobs"
+      ><i class="fa fa-table"></i> View Batch Jobs</a
+    >
+  </div>
+</form>

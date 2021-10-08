@@ -1,0 +1,52 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">Smart Micro Batch Interface </h1>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="example-container" autosize>
+
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()"
+   (mouseleave)="mouseleave()">
+
+    <mat-nav-list>
+     
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="NavBatchJobCreation">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Creation</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="NavBatchJobSubmit">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Submit</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="NavBatchJobMonitor">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Monitor</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+    
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    Main content that resizes properly
+  </div>
+
+</mat-sidenav-container>
+
+
+
+
+=====================
+	  <mat-list-item  class="NavBatchJobCreation">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Creation</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'/batchjobsubmit'" class="NavBatchJobSubmit">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Submit</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'/batchjobmonitor" class="NavBatchJobMonitor">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Batch Job Monitor</span>
+      </mat-list-item>
